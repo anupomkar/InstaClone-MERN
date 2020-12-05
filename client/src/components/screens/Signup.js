@@ -35,6 +35,12 @@ const SignIn  = ()=>{
             M.toast({html: "invalid email",classes:"#c62828 red darken-3"})
             return
         }
+         else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(password)){
+            M.toast({
+                html: `<p>The Password must be 8-32 characters long and must contain at least 1 lowercase,1 uppercase,1 numeric,1 special character</p><br/>`,
+                classes:"#c62828 red darken-3"})
+            return
+        }
         fetch("/signup",{
             method:"post",
             headers:{
