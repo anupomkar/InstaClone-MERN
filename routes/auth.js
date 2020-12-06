@@ -5,7 +5,7 @@ const User = mongoose.model("User")
 const crypto = require('crypto')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const {JWT_SECRET} = require('../config/keys')
+const {JWT_SECRET,EMAIL} = require('../config/keys')
 const requireLogin = require('../middleware/requireLogin')
 const nodemailer = require('nodemailer')
 
@@ -14,8 +14,8 @@ const nodemailer = require('nodemailer')
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth:{
-            user: 'noreplyinsta84@gmail.com',
-            pass: 'Noreplyinsta@84'
+            user: '-------------@gmail.com', //Give your email or create a new one
+            pass: '********'
     }
 });
 
@@ -42,7 +42,7 @@ router.post('/signup',(req,res)=>{
             .then(user=>{
                 transporter.sendMail(
                     {
-                         from:'noreplyinsta84@gmail.com',
+                         from:'------------@gmail.com',
                          to:user.email,
                          subject:"Signup Success",
                          html:'<h1>Happy to Welcome you on Instagram</h1>'
@@ -106,12 +106,12 @@ router.post('/reset-password',(req,res)=>{
              user.save().then((result)=>{
                 transporter.sendMail(
                     {
-                        from:"noreplyinsta84@gmail.com",
+                        from:"--------------@gmail.com",
                         to:user.email,
                         subject:"password reset",
                         html:`
                         <p>You requested for password reset</p>
-                        <h3>click in this <a href="http://localhost:3000/reset/${token}">link</a> to reset password</h3>
+                        <h3>click in this <a href="${EMAIL}/reset/${token}">link</a> to reset password</h3>
                         <h4>The link expires in one hour</h4>
                         `
                     }
