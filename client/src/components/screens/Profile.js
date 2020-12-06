@@ -21,8 +21,8 @@ const Profile  = ()=>{
         const data = new FormData()
         data.append("file",image)
         data.append("upload_preset","insta-clone")
-        data.append("cloud_name","anupomkar")
-        fetch("https://api.cloudinary.com/v1_1/anupomkar/image/upload",{
+        data.append("cloud_name","_________")
+        fetch("https://api.cloudinary.com/v1_1/_________/image/upload",{
             method:"post",
             body:data
         })
