@@ -1,4 +1,5 @@
 module.exports = {
-    MONGOURI:"mongodb+srv://anup_omkar:3J2d1G4G5Q8LKy30@cluster0.nubej.mongodb.net/<dbname>?retryWrites=true&w=majority",
-    JWT_SECRET:"anupomkarmgmbestpesu"
+    MONGOURI:" ", // Give your mongouri
+    JWT_SECRET:" ",//Give your JWT_SECRET
+    EMAIL:"http://localhost:3000"
 }
